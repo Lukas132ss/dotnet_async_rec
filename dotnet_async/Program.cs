@@ -1,9 +1,17 @@
-﻿Task<string> conteudoTask = Task.Run(() => File.ReadAllText("voos.txt"));
+﻿Task<string> conteudoTask = Task.Run(() => File.ReadAllText(".voos.txt"));
 
 void LerArquivo()
 {
-    Task.Delay(new Random().Next(300, 8000));
-    Console.WriteLine($"Conteúdo: \n{conteudoTask.Result}");
+    try
+    {
+        Task.Delay(new Random().Next(300, 8000));
+        Console.WriteLine($"Conteúdo: \n{conteudoTask.Result}");
+    }
+    catch (AggregateException ex)
+    {
+        Console.WriteLine($"Erro: {ex.InnerException.Message}");
+    }
+    
 }
 
 void ExibirRelatorio()
