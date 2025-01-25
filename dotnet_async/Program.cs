@@ -14,7 +14,7 @@ void ExibirRelatorio()
 
 Task task1 = Task.Run(() => LerArquivo());
 
-var task2 = Task.Run(() => ExibirRelatorio());
+Task task2 = Task.Run(() => ExibirRelatorio());
 
 Console.WriteLine("Outras operações.");
 Console.ReadKey();
